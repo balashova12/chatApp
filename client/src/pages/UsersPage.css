@@ -1,0 +1,85 @@
+.users-page {
+    min-height: 100vh;
+    background: #f0f2f5;
+}
+
+.users-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: white;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.users-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #5b6af0;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.users-list {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+
+.user-item:hover {
+    background: #f5f6ff;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #5b6af0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.user-name {
+    font-weight: 500;
+    font-size: 15px;
+    color: #111;
+}
+
+.user-email {
+    font-size: 13px;
+    color: #888;
+}

@@ -1,0 +1,107 @@
+.chat-layout {
+    display: flex;
+    height: 100vh;
+    background: #fff;
+}
+
+.sidebar {
+    width: 320px;
+    min-width: 320px;
+    border-right: 1px solid #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #5b6af0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.username {
+    font-weight: 500;
+    font-size: 15px;
+    color: #111;
+}
+
+.sidebar-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f2f5;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: #e4e6eb;
+}
+
+.logout-btn {
+    color: #e53935;
+}
+
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f8f9fa;
+}
+
+.chat-empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #888;
+    font-size: 15px;
+}
+
+.chat-empty button {
+    padding: 10px 24px;
+    background: #5b6af0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.chat-empty button:hover {
+    background: #4a58e0;
+}
