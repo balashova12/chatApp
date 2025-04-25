@@ -38,9 +38,9 @@ export default function ProfilePage() {
             });
 
             updateUser(res.data.user);
-            setSuccess('Профиль обновлён!');
+            setSuccess('Profile updated!');
         } catch (err) {
-            setError(err.response?.data?.message || 'Ошибка обновления');
+            setError(err.response?.data?.message || 'Error updating profile');
         } finally {
             setLoading(false);
         }
@@ -50,8 +50,8 @@ export default function ProfilePage() {
         <div className="profile-page">
             <div className="profile-card">
                 <div className="profile-header">
-                    <button className="back-btn" onClick={() => navigate('/chats')}>← Назад</button>
-                    <h2>Настройки профиля</h2>
+                    <button className="back-btn" onClick={() => navigate('/chats')}>← Back</button>
+                    <h2>Profile Settings</h2>
                 </div>
 
                 <form onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ export default function ProfilePage() {
                             )}
                         </div>
                         <label className="avatar-upload-btn">
-                            Изменить фото
+                            Change Avatar
                             <input
                                 type="file"
                                 accept="image/*"
@@ -75,7 +75,7 @@ export default function ProfilePage() {
                     </div>
 
                     <div className="form-group">
-                        <label>Имя пользователя</label>
+                        <label>Username</label>
                         <input
                             type="text"
                             value={username}
@@ -93,7 +93,7 @@ export default function ProfilePage() {
                     {success && <p className="profile-success">{success}</p>}
 
                     <button type="submit" className="save-btn" disabled={loading}>
-                        {loading ? 'Сохраняем...' : 'Сохранить'}
+                        {loading ? 'Saving...' : 'Save'}
                     </button>
                 </form>
             </div>

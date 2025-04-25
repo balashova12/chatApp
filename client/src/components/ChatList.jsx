@@ -18,12 +18,12 @@ export default function ChatList({ selectedChatId, onSelectChat }) {
 
     const getLastMessage = (chat) => {
         const msg = chat.messages?.[0];
-        if (!msg) return 'Нет сообщений';
+        if (!msg) return 'No messages yet';
         return msg.content.length > 40 ? msg.content.slice(0, 40) + '...' : msg.content;
     };
 
     if (chats.length === 0) {
-        return <div className="chat-list-empty">Нет чатов. Начните новый!</div>;
+        return <div className="chat-list-empty">No chats. Start a new one!</div>;
     }
 
     return (

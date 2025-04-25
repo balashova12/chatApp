@@ -27,7 +27,7 @@ export default function VerifyPage() {
             login(res.data.token, res.data.user);
             navigate('/chats');
         } catch (err) {
-            setError(err.response?.data?.message || 'Ошибка подтверждения');
+            setError(err.response?.data?.message || 'Error verifying email');
         } finally {
             setLoading(false);
         }
@@ -36,11 +36,11 @@ export default function VerifyPage() {
     return (
         <div className="auth-container">
             <div className="auth-card">
-                <h1>Подтвердите email</h1>
-                <p className="auth-subtitle">Мы отправили код на {email}</p>
+                <h1>Verify Email</h1>
+                <p className="auth-subtitle">We sent a code to {email}</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>Код подтверждения</label>
+                        <label>Verification Code</label>
                         <input
                             type="text"
                             placeholder="123456"
@@ -52,7 +52,7 @@ export default function VerifyPage() {
                     </div>
                     {error && <p className="auth-error">{error}</p>}
                     <button type="submit" className="auth-btn" disabled={loading}>
-                        {loading ? 'Проверяем...' : 'Подтвердить'}
+                        {loading ? 'Verifying...' : 'Verify'}
                     </button>
                 </form>
             </div>

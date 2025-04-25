@@ -19,7 +19,7 @@ export default function RegisterPage() {
             await axios.post('/auth/register', form);
             navigate('/verify', { state: { email: form.email } });
         } catch (err) {
-            setError(err.response?.data?.message || 'Ошибка регистрации');
+            setError(err.response?.data?.message || 'Error registering');
         } finally {
             setLoading(false);
         }
@@ -28,11 +28,11 @@ export default function RegisterPage() {
     return (
         <div className="auth-container">
             <div className="auth-card">
-                <h1>Создать аккаунт</h1>
-                <p className="auth-subtitle">Зарегистрируйтесь чтобы начать</p>
+                <h1>Create an account</h1>
+                <p className="auth-subtitle">Sign up to get started</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>Имя пользователя</label>
+                        <label>Username</label>
                         <input
                             type="text"
                             placeholder="username"
@@ -52,7 +52,7 @@ export default function RegisterPage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Пароль</label>
+                        <label>Password</label>
                         <input
                             type="password"
                             placeholder="••••••••"
@@ -63,11 +63,11 @@ export default function RegisterPage() {
                     </div>
                     {error && <p className="auth-error">{error}</p>}
                     <button type="submit" className="auth-btn" disabled={loading}>
-                        {loading ? 'Создаём...' : 'Зарегистрироваться'}
+                        {loading ? 'Creating account...' : 'Sign up'}
                     </button>
                 </form>
                 <p className="auth-link">
-                    Уже есть аккаунт? <Link to="/login">Войти</Link>
+                    Already have an account? <Link to="/login">Sign in</Link>
                 </p>
             </div>
         </div>

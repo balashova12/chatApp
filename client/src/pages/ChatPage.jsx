@@ -39,9 +39,9 @@ export default function ChatPage() {
                         <span className="username">{user?.username}</span>
                     </div>
                     <div className="sidebar-actions">
-                        <button className="icon-btn" title="Новый чат" onClick={() => navigate('/users')}>+</button>
-                        <button className="icon-btn" title="Профиль" onClick={() => navigate('/profile')}>⚙</button>
-                        <button className="icon-btn logout-btn" title="Выйти" onClick={handleLogout}>←</button>
+                        <button className="icon-btn" title="New Chat" onClick={() => navigate('/users')}>+</button>
+                        <button className="icon-btn" title="Profile" onClick={() => navigate('/profile')}>⚙</button>
+                        <button className="icon-btn logout-btn" title="Log out" onClick={handleLogout}>←</button>
                     </div>
                 </div>
                 <ChatList selectedChatId={selectedChatId} onSelectChat={handleSelectChat} />
@@ -51,8 +51,8 @@ export default function ChatPage() {
                     <ChatWindow chatId={selectedChatId} />
                 ) : (
                     <div className="chat-empty">
-                        <p>Выберите чат или</p>
-                        <button onClick={() => navigate('/users')}>начните новый</button>
+                        <p>Choose a chat or</p>
+                        <button onClick={() => navigate('/users')}>start a new one</button>
                     </div>
                 )}
             </div>

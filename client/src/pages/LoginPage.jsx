@@ -29,8 +29,8 @@ export default function LoginPage() {
     return (
         <div className="auth-container">
             <div className="auth-card">
-                <h1>Добро пожаловать</h1>
-                <p className="auth-subtitle">Войдите в свой аккаунт</p>
+                <h1>Welcome</h1>
+                <p className="auth-subtitle">Sign in to your account</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Email</label>
@@ -43,7 +43,7 @@ export default function LoginPage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Пароль</label>
+                        <label>Password</label>
                         <input
                             type="password"
                             placeholder="••••••••"
@@ -54,11 +54,11 @@ export default function LoginPage() {
                     </div>
                     {error && <p className="auth-error">{error}</p>}
                     <button type="submit" className="auth-btn" disabled={loading}>
-                        {loading ? 'Входим...' : 'Войти'}
+                        {loading ? 'Signing in...' : 'Sign In'}
                     </button>
                 </form>
                 <p className="auth-link">
-                    Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
+                    Don't have an account? <Link to="/register">Sign up</Link>
                 </p>
             </div>
         </div>

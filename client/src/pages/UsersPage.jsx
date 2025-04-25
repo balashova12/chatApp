@@ -19,8 +19,8 @@ export default function UsersPage() {
     return (
         <div className="users-page">
             <div className="users-header">
-                <button className="back-btn" onClick={() => navigate('/chats')}>← Назад</button>
-                <h2>Новый чат</h2>
+                <button className="back-btn" onClick={() => navigate('/chats')}>← Back</button>
+                <h2>New Chat</h2>
             </div>
             <div className="users-list">
                 {users.map(u => (
