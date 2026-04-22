@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ChatPage from './pages/ChatPage';
+import UsersPage from './pages/UsersPage';
 
-function App() {
-  const [count, setCount] = useState(0)
+const PrivateRoute = ({ children }) => {
+    const { user, loading } = useAuth();
+    if (loading) return <div className="loading">Загрузка...</div>;
+    return user ? children : <Navigate to="/login" />;
+};
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const PublicRoute = ({ children }) => {
+    const { user, loading } = useAuth();
+    if (loading) return <div className="loading">Загрузка...</div>;
+    return user ? <Navigate to="/chats" /> : children;
+};
+
+function AppRoutes() {
+    return (
+        <Routes>
+            <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
+            <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
+            <Route path="/chats" element={<PrivateRoute><ChatPage /></PrivateRoute>} />
+            <Route path="/chats/:chatId" element={<PrivateRoute><ChatPage /></PrivateRoute>} />
+            <Route path="/users" element={<PrivateRoute><UsersPage /></PrivateRoute>} />
+            <Route path="*" element={<Navigate to="/chats" />} />
+        </Routes>
+    );
 }
 
-export default App
+export default function App() {
+    return (
+        <BrowserRouter>
+            <AuthProvider>
+                <AppRoutes />
+            </AuthProvider>
+        </BrowserRouter>
+    );
+}
