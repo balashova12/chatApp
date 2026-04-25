@@ -9,13 +9,13 @@ import ProfilePage from './pages/ProfilePage';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    if (loading) return <div className="loading">Загрузка...</div>;
+    if (loading) return <div className="loading">Loading...</div>;
     return user ? children : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    if (loading) return <div className="loading">Загрузка...</div>;
+    if (loading) return <div className="loading">Loading...</div>;
     return user ? <Navigate to="/chats" /> : children;
 };
 
