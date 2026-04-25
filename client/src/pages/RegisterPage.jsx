@@ -17,12 +17,7 @@ export default function RegisterPage() {
         setLoading(true);
         try {
             await axios.post('/auth/register', form);
-            const res = await axios.post('/auth/login', {
-                email: form.email,
-                password: form.password,
-            });
-            login(res.data.token, res.data.user);
-            navigate('/chats');
+            navigate('/verify', { state: { email: form.email } });
         } catch (err) {
             setError(err.response?.data?.message || 'Ошибка регистрации');
         } finally {
